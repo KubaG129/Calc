@@ -1,0 +1,132 @@
+
+/*
+
+Chciałem dodać menu główne między kalkulatorem naszym i dodatkowym zrobionym na eval(), tu jest css pod to
+
+.glowny
+{
+  text-align: center;
+  margin: 90px;
+  color: #6e34c0c5;
+  font-size: 100px;
+  font-family: 'Roboto Mono', monospace;
+}
+.wybory
+{
+  text-align: center;
+  height: 200px;
+  font-size: 50px;
+  opacity: 85%;
+  border-radius: 10px;
+  border: 4px double #cccccc;
+  color: #eeee;
+  background-color: #7b38d8
+} */ 
+.tytul
+{
+    text-align: center;
+    margin: 90px;
+    color: #6e34c0c5;
+    font-size: 60px;
+    font-family: 'Roboto Mono', monospace;
+}
+.pytanie
+{
+  text-align: Left;
+  color: #26093dc5;
+  font-size: 30px;
+  font-family: 'Roboto Mono', monospace;
+}
+.container {
+    height: 200px;
+    margin: 90px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .liczby {
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .przycisk {
+    text-align: center;
+    height: 200px;
+    font-size: 50px;
+    opacity: 85%;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeee;
+    background-color: #7b38d8
+  }
+  .wynik1
+  {
+    height: 200px;
+    grid-column: 1/4;
+    font-size: 150px;
+    opacity: 85%;
+    color: grey;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeee;
+    background-color: #6916dd
+  }
+  .liczba
+  {
+    opacity: 100%;
+    height:100px;
+    font-size:50px;
+    color: grey;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeee;
+    background-color: #7b38d8
+  }
+  .error1
+  {
+    height: 150px;
+    grid-column: -1/2;
+    font-size: 125px;
+    opacity: 85%;
+    color: grey;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeee;
+    background-color:#4d0a41;
+    color:red;
+  }
+  .error2
+  {
+    font-size: 100px;
+    text-align: right;
+    margin: 90px;
+    color: #6e34c0c5;
+    font-size: 90px;
+    font-family: 'Roboto Mono', monospace;
+  }
+  .reset
+  {
+    height: 150px;
+    grid-column: 1/1;
+    font-size: 125px;
+    opacity: 85%;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeee;
+    background-color:#22071d;
+    color:White;
+    font-family: 'Roboto Mono', monospace;
+  }
+  /*Usunięcie strzałek z input type=number, dodana zależność od przeglądarek */
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
