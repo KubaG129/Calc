@@ -1,31 +1,32 @@
+<!DOCTYPE html>
 <HTML>
 
-<HEAD>
-    <META charset="UTF-8">
-    <title>Pierwsze skrypty</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
-</HEAD>
-
-<BODY onload="pusta()">  
-    <h1 class="tytul">Kalkulator</h1>
-    <input type="checkbox" id="cb" name="dzialania" checked onclick="pusta_bezcb_zUkryciem()">
-    <label for="cb" class="pytanie">Działania mają być wykonywane tylko raz</label>
-    <div class="container">
-        <div class="liczby">
-            <input type="text" class="liczba" id="liczba1" placeholder="Pierwsza liczba:">
-            <input type="text" class="liczba" id="liczba2" placeholder="Druga liczba:">
+    <HEAD>
+        <META charset="UTF-8">
+        <title>Pierwsze skrypty</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+    </HEAD>
+    
+    <BODY onload="pusta()">  
+        <h1 class="tytul">Kalkulator</h1>
+        <input type="checkbox" id="cb" class="check" name="dzialania" checked onclick="pusta_bezcb_zUkryciem()">
+        <label for="cb" class="pytanie">Działania mają być wykonywane tylko raz</label>
+        <div class="container">
+            <div class="liczby">
+                <input type="text" class="liczba" id="liczba1" placeholder="Pierwsza liczba:">
+                <input type="text" class="liczba" id="liczba2" placeholder="Druga liczba:">
+            </div>
+            <button class="przycisk" onclick="dodawanie()">+</button>
+            <button class="przycisk" onclick="odejmowanie()">-</button>
+            <button class="przycisk" onclick="mnozenie()">*</button>
+            <button class="przycisk" onclick="dzielenie()">/</button>
+            <button class="przycisk" onclick="modulo()">%</button>
+            <input type="text" id="wynik" class="wynik1" readonly="readonly" placeholder="Wynik:">
+            <div id="error" class="error1"></div><div id="reset" class="reset" onclick="pusta_bezcb_bezUkrycia()">Reset</div>
+    
         </div>
-        <button class="przycisk" onclick="dodawanie()">+</button>
-        <button class="przycisk" onclick="odejmowanie()">-</button>
-        <button class="przycisk" onclick="mnozenie()">*</button>
-        <button class="przycisk" onclick="dzielenie()">/</button>
-        <button class="przycisk" onclick="modulo()">%</button>
-        <input type="text" id="wynik" class="wynik1" readonly="readonly" placeholder="Wynik:">
-        <div id="reset" class="reset" onclick="pusta_bezcb_bezUkrycia()">Reset</div><div id="error" class="error1"></div>
-
-    </div>
-    <script src="script.js"></script>
-</BODY>
-
-</HTML>
+        <script src="script.js"></script>
+    </BODY>
+    
+    </HTML>
