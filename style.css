@@ -1,3 +1,8 @@
+body{
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(20,20,143,1) 35%, rgba(0,212,255,1) 100%);
+font-family: 'Roboto Mono', monospace;
+}
 /*
 Chciałem dodać menu główne między kalkulatorem naszym i dodatkowym zrobionym na eval(), tu jest css pod to
 .glowny
@@ -23,16 +28,15 @@ Chciałem dodać menu główne między kalkulatorem naszym i dodatkowym zrobiony
 {
     text-align: center;
     margin: 90px;
-    color: #6e34c0c5;
+    color: #cccccc;
     font-size: 60px;
     font-family: 'Roboto Mono', monospace;
 }
 .pytanie
 {
   text-align: Left;
-  color: #26093dc5;
-  font-size: 30px;
-  font-family: 'Roboto Mono', monospace;
+  color: #cccccc;
+  font-size: 40px;
 }
 .container {
     height: 200px;
@@ -84,8 +88,8 @@ Chciałem dodać menu główne między kalkulatorem naszym i dodatkowym zrobiony
   .error1
   {
     height: 150px;
-    grid-column: -1/2;
-    font-size: 125px;
+    grid-column: -1/1;
+    font-size: 100px;
     opacity: 85%;
     color: grey;
     border-radius: 10px;
@@ -101,24 +105,27 @@ Chciałem dodać menu główne między kalkulatorem naszym i dodatkowym zrobiony
     margin: 90px;
     color: #6e34c0c5;
     font-size: 90px;
-    font-family: 'Roboto Mono', monospace;
   }
   .reset
   {
-    height: 150px;
-    grid-column: 1/1;
-    font-size: 125px;
+    height: 100px;
+    grid-column: 1/4;
+    font-size: 75px;
     opacity: 85%;
     border-radius: 10px;
     border: 4px double #cccccc;
     color: #eeee;
     background-color:#22071d;
     color:White;
-    font-family: 'Roboto Mono', monospace;
     cursor: pointer;
+  }
+  input.check{
+    width: 30px;
+    height: 30px;
   }
   /*Usunięcie strzałek z input type=number, dodana zależność od przeglądarek */
   /* Chrome, Safari, Edge, Opera */
+  /*Fragment kodu był potrzebny gdy oparłem inputy na type number */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
