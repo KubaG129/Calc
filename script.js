@@ -11,8 +11,7 @@ let hidden = false;
 ///Dzielenie przez 0 i puste pola
 
 ///Resety, przy ponownym załadowaniu oraz inne
-function pusta()
-{
+function pusta() {
   wynik.value = "";
   liczba1.value = "";
   liczba2.value = "";
@@ -20,208 +19,195 @@ function pusta()
   cb.checked = true;
   reset.style.visibility = "hidden";
 }
-function pusta_bezcb_zUkryciem()
-{
+function pusta_bezcb_zUkryciem() {
   wynik.value = "";
   liczba1.value = "";
   liczba2.value = "";
   error.innerText = "";
   hidden = !hidden;
-  if(!hidden) {
-      reset.style.visibility = "hidden";
+  if (!hidden) {
+    reset.style.visibility = "hidden";
   } else {
-      reset.style.visibility = "visible";
+    reset.style.visibility = "visible";
   }
 }
-function pusta_bezcb_bezUkrycia()
-{
+function pusta_bezcb_bezUkrycia() {
   wynik.value = "";
   liczba1.value = "";
   liczba2.value = "";
   error.innerText = "";
 }
+
+// Zwraca błąd, jeśli liczba1 lub liczba2 jest pusta
+function sprawdzCzyPuste() {
+  if (liczba1.value == "" || liczba2.value == "") {
+    throw new Error("Liczby nie zostały nadane");
+  }
+}
+
 ///Działania, są uzależnione od stanu checkboxa
-function dodawanie()
-{
-    ///Sprawdza czy wartości zostały wpisane
-    if(liczba1.value=="" || liczba2.value=="")
-    {
-      error.innerText="Liczby nie zostały nadane";
-      wynik.value="";
-      /// return wychodzi z funkcji
-      return; 
-    }
-  if(cb.checked)
-  {
-    wynik.value=parseFloat(liczba1.value)+parseFloat(liczba2.value);
-  }
-  else
-  {
-    if(wynik.value=="")
-    {
-      wynik.value=parseFloat(liczba1.value)+parseFloat(liczba2.value);
+function dodawanie() {
+  try {
+    sprawdzCzyPuste();
 
+    if (cb.checked) {
+      wynik.value = parseFloat(liczba1.value) + parseFloat(liczba2.value);
     }
-    else
-    {
-      wynik.value=parseFloat(wynik.value) + (parseFloat(wynik.value)+parseFloat(liczba2.value));
-    }   
-  }
-  
-}
-function odejmowanie()
-{
-    ///Sprawdza czy wartości zostały wpisane
-    if(liczba1.value=="" || liczba2.value=="")
-    {
-      error.innerText="Liczby nie zostały nadane";
-      wynik.value="";
-      /// return wychodzi z funkcji
-      return; 
-    }
-  if(cb.checked)
-  {
-    wynik.value=parseFloat(liczba1.value)-parseFloat(liczba2.value);
-  }
-  else
-  {
-    if(wynik.value=="")
-    {
-      wynik.value=parseFloat(Liczba1.value)-parseFloat(liczba2.value);
-
-    }
-    else
-    {
-      wynik.value=parseFloat(wynik.value) + (parseFloat(wynik.value)-parseFloat(liczba2.value));
-    }   
-  }
-}
-function mnozenie()
-{
-    ///Sprawdza czy wartości zostały wpisane
-    if(liczba1.value=="" || liczba2.value=="")
-    {
-      error.innerText="Liczby nie zostały nadane";
-      wynik.value="";
-      /// return wychodzi z funkcji
-      return; 
-    }
-  if(cb.checked)
-  {
-    wynik.value=parseFloat(liczba1.value)*parseFloat(liczba2.value);
-  }
-  else
-  {
-    if(wynik.value=="")
-    {
-      wynik.value=parseFloat(liczba1.value)*parseFloat(liczba2.value);
-
-    }
-    else
-    {
-      wynik.value=parseFloat(wynik.value)*parseFloat(liczba2.value);
-    }   
-  }
-}
-function dzielenie()
-{
-      ///Warunek odrzuca dzielenie przez 0
-      if(liczba2.value==0)
-      {
-        error.innerText="Nie dziel przez 0";
-        wynik.value="";
-        return;
+    else {
+      if (wynik.value == "") {
+        wynik.value = parseFloat(liczba1.value) + parseFloat(liczba2.value);
       }
-    ///Sprawdza czy wartości zostały wpisane
-    if(liczba1.value=="" || liczba2.value=="")
-    {
-      error.innerText="Liczby nie zostały nadane";
-      wynik.value="";
-      /// return wychodzi z funkcji
-      return; 
+      else {
+        wynik.value = (parseFloat(wynik.value) + parseFloat(liczba2.value));
+      }
     }
-  if(cb.checked)
-  {
-    wynik.value=parseFloat(liczba1.value)/parseFloat(liczba2.value);
+  } catch (err) {
+    wynik.value = "";
+    error.innerText = err.message;
   }
-  else
-  {
-    if(wynik.value=="")
-    {
-      wynik.value=parseFloat(liczba1.value)/parseFloat(liczba2.value);
-    }
-    else
-    {
-      wynik.value=parseFloat(wynik.value) + (parseFloat(wynik.value)/parseFloat(liczba2.value));
-    }   
-  }
+
 }
-function modulo()
-{
-  if(liczba2.value==0)
-  {
-    error.innerText="Nie dziel przez 0";
-    wynik.value="";
+function odejmowanie() {
+  ///Sprawdza czy wartości zostały wpisane
+  if (liczba1.value == "" || liczba2.value == "") {
+    error.innerText = "Liczby nie zostały nadane";
+    wynik.value = "";
+    /// return wychodzi z funkcji
     return;
   }
-    ///Sprawdza czy wartości zostały wpisane
-    if(liczba1.value=="" || liczba2.value=="")
-    {
-      error.innerText="Liczby nie zostały nadane";
-      wynik.value="";
-      /// return wychodzi z funkcji
-      return; 
-    }
-  if(cb.checked)
-  {
-    wynik.value=parseFloat(liczba1.value)%parseFloat(liczba2.value);
+  if (cb.checked) {
+    wynik.value = parseFloat(liczba1.value) - parseFloat(liczba2.value);
   }
-  else
-  {
-    if(wynik.value=="")
-    {
-      wynik.value=parseFloat(liczba1.value)%parseFloat(liczba2.value);
+  else {
+    if (wynik.value == "") {
+      wynik.value = parseFloat(Liczba1.value) - parseFloat(liczba2.value);
 
     }
-    else
-    {
-      wynik.value=parseFloat(wynik.value) + (parseFloat(wynik.value)%parseFloat(liczba2.value));
-    }   
+    else {
+      wynik.value = (parseFloat(wynik.value) - parseFloat(liczba2.value));
+    }
   }
 }
+function mnozenie() {
+  ///Sprawdza czy wartości zostały wpisane
+  if (liczba1.value == "" || liczba2.value == "") {
+    error.innerText = "Liczby nie zostały nadane";
+    wynik.value = "";
+    /// return wychodzi z funkcji
+    return;
+  }
+  if (cb.checked) {
+    wynik.value = parseFloat(liczba1.value) * parseFloat(liczba2.value);
+  }
+  else {
+    if (wynik.value == "") {
+      wynik.value = parseFloat(liczba1.value) * parseFloat(liczba2.value);
+
+    }
+    else {
+      wynik.value = parseFloat(wynik.value) * parseFloat(liczba2.value);
+    }
+  }
+}
+function dzielenie() {
+  ///Warunek odrzuca dzielenie przez 0
+  if (liczba2.value == 0) {
+    error.innerText = "Nie dziel przez 0";
+    wynik.value = "";
+    return;
+  }
+  ///Sprawdza czy wartości zostały wpisane
+  if (liczba1.value == "" || liczba2.value == "") {
+    error.innerText = "Liczby nie zostały nadane";
+    wynik.value = "";
+    /// return wychodzi z funkcji
+    return;
+  }
+  if (cb.checked) {
+    wynik.value = parseFloat(liczba1.value) / parseFloat(liczba2.value);
+  }
+  else {
+    if (wynik.value == "") {
+      wynik.value = parseFloat(liczba1.value) / parseFloat(liczba2.value);
+    }
+    else {
+      wynik.value = (parseFloat(wynik.value) / parseFloat(liczba2.value));
+    }
+  }
+}
+function modulo() {
+  if (liczba2.value == 0) {
+    error.innerText = "Nie dziel przez 0";
+    wynik.value = "";
+    return;
+  }
+  ///Sprawdza czy wartości zostały wpisane
+  if (liczba1.value == "" || liczba2.value == "") {
+    error.innerText = "Liczby nie zostały nadane";
+    wynik.value = "";
+    /// return wychodzi z funkcji
+    return;
+  }
+  if (cb.checked) {
+    wynik.value = parseFloat(liczba1.value) % parseFloat(liczba2.value);
+  }
+  else {
+    if (wynik.value == "") {
+      wynik.value = parseFloat(liczba1.value) % parseFloat(liczba2.value);
+
+    }
+    else {
+      wynik.value = (parseFloat(wynik.value) % parseFloat(liczba2.value));
+    }
+  }
+}
+
+function zweryfikujInputa(e) {
+  // Sprawdza, czy znak znajduje się wewnątrz stringa
+  function zawiera(stringValue, charValue) {
+    return stringValue.indexOf(charValue) > -1;
+  }
+
+  const cyfry = "01234565789";
+  const przecinek = ",";
+  const kropka = ".";
+  const minus = "-";
+
+  // Sprawdzenie jakie znaki może użytkownik wpisać
+  let dozwoloneZnaki = cyfry; // zawsze może wpisać cyfrę
+
+  // Jeżeli nic wcześniej nie wpisał, to może wpisać minusa przed całą liczbą
+  if (e.target.value.length === 0) {
+    dozwoloneZnaki += minus;
+  }
+
+  // Użytkownik może wpisać tylko jedną kropkę
+  if (!zawiera(e.target.value, przecinek) && !zawiera(e.target.value, kropka)) {
+    dozwoloneZnaki += przecinek + kropka;
+  }
+
+  // Jeżeli znak wpisywany przez użytkownika nie należy do dozwolonych znaków, to wpisanie jest blokowane
+  if (e.key.length === 1 && !zawiera(dozwoloneZnaki, e.key)) {
+    e.preventDefault();
+  }
+}
+
 ///Blokada liter w liczbach1 i 2
+liczba1.addEventListener("keypress", zweryfikujInputa);
+liczba2.addEventListener("keypress", zweryfikujInputa);
 
-liczba1.addEventListener("keypress", function (e)
-{    
-  let allowedChars = '-0123456789,.';
-  function contains(stringValue, charValue) {
-  return stringValue.indexOf(charValue) > -1;
-}
-var invalidKey = e.key.length === 1 && !contains(allowedChars , e.key)
-        || e.key === '.' && contains(e.target.value, '.');
-invalidKey && e.preventDefault();
-}
-);
-liczba2.addEventListener("keypress", function (e) {
-  let allowedChars = '-0123456789,.';
-    function contains(stringValue, charValue) {
-        return stringValue.indexOf(charValue) > -1;
-    }
-    var invalidKey = e.key.length === 1 && !contains(allowedChars , e.key)
-            || e.key === '.' && contains(e.target.value, '.');
-    invalidKey && e.preventDefault();});
 ///Wykrywanie zmian. Przy użyciu backspace / delete, wynik wraca do placeholdera  
-liczba1.addEventListener('keydown', function(event) {
+liczba1.addEventListener('keydown', function (event) {
   const key = event.key;
   if (key === "Backspace" || key === "Delete") {
-    wynik.value="";
-    error.innerText="";
+    wynik.value = "";
+    error.innerText = "";
   }
 });
-liczba2.addEventListener('keydown', function(event) {
+liczba2.addEventListener('keydown', function (event) {
   const key = event.key;
   if (key === "Backspace" || key === "Delete") {
-    wynik.value="";
-    error.innerText="";
+    wynik.value = "";
+    error.innerText = "";
   }
 });

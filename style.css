@@ -58,7 +58,8 @@ Chciałem dodać menu główne między kalkulatorem naszym i dodatkowym zrobiony
     border-radius: 10px;
     border: 4px double #cccccc;
     color: #eeee;
-    background-color: #7b38d8
+    background-color: #7b38d8;
+    cursor: pointer;
   }
   .wynik1
   {
@@ -117,6 +118,7 @@ Chciałem dodać menu główne między kalkulatorem naszym i dodatkowym zrobiony
     background-color:#22071d;
     color:White;
     font-family: 'Roboto Mono', monospace;
+    cursor: pointer;
   }
   /*Usunięcie strzałek z input type=number, dodana zależność od przeglądarek */
   /* Chrome, Safari, Edge, Opera */
