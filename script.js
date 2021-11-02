@@ -47,7 +47,6 @@ function sprawdzCzyPuste() {
 function sprawdzCzy0()
 {
   if (liczba2.value == 0) {
-    error.innerText = "Nie dziel przez 0";
     throw new Error("Nie dziel przez 0");
   }
 }
@@ -79,8 +78,6 @@ function odejmowanie() {
   ///Sprawdza czy wartości zostały wpisane
 try{
   sprawdzCzyPuste();
-
-
   if (cb.checked) {
     wynik.value = parseFloat(liczba1.value) - parseFloat(liczba2.value);
     error.innerText = "";
@@ -104,7 +101,6 @@ function mnozenie() {
   ///Sprawdza czy wartości zostały wpisane
 try{
 sprawdzCzyPuste();
-
   if (cb.checked) {
     wynik.value = parseFloat(liczba1.value) * parseFloat(liczba2.value);
     error.innerText = "";
