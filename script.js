@@ -40,34 +40,41 @@ function pusta_bezcb_bezUkrycia()
   liczba2.value = "";
   error.innerText = "";
 }
+
+// Zwraca błąd, jeśli liczba1 lub liczba2 jest pusta
+function sprawdzCzyPuste() {
+  if(liczba1.value=="" || liczba2.value=="")
+  {
+    throw new Error("Liczby nie zostały nadane");
+  }
+}
+
 ///Działania, są uzależnione od stanu checkboxa
 function dodawanie()
 {
-    ///Sprawdza czy wartości zostały wpisane
-    if(liczba1.value=="" || liczba2.value=="")
-    {
-      error.innerText="Liczby nie zostały nadane";
-      wynik.value="";
-      /// return wychodzi z funkcji
-      return; 
-    }
-  if(cb.checked)
-  {
-    wynik.value=parseFloat(liczba1.value)+parseFloat(liczba2.value);
-  }
-  else
-  {
-    if(wynik.value=="")
+  try {
+    sprawdzCzyPuste();
+
+    if(cb.checked)
     {
       wynik.value=parseFloat(liczba1.value)+parseFloat(liczba2.value);
-
     }
     else
     {
-      wynik.value=(parseFloat(wynik.value)+parseFloat(liczba2.value));
-    }   
+      if(wynik.value=="")
+      {
+        wynik.value=parseFloat(liczba1.value)+parseFloat(liczba2.value);
+      }
+      else
+      {
+        wynik.value=(parseFloat(wynik.value)+parseFloat(liczba2.value));
+      }   
+    }
+  } catch (err) {
+    wynik.value = "";
+    error.innerText= err.message;
   }
-  
+    
 }
 function odejmowanie()
 {
