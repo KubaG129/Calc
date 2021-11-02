@@ -44,6 +44,13 @@ function sprawdzCzyPuste() {
     throw new Error("Liczby nie zostały nadane");
   }
 }
+function sprawdzCzy0()
+{
+  if (liczba2.value == 0) {
+    error.innerText = "Nie dziel przez 0";
+    throw new Error("Nie dziel przez 0");
+  }
+}
 
 ///Działania, są uzależnione od stanu checkboxa
 function dodawanie() {
@@ -52,6 +59,7 @@ function dodawanie() {
 
     if (cb.checked) {
       wynik.value = parseFloat(liczba1.value) + parseFloat(liczba2.value);
+      error.innerText = "";
     }
     else {
       if (wynik.value == "") {
@@ -69,14 +77,13 @@ function dodawanie() {
 }
 function odejmowanie() {
   ///Sprawdza czy wartości zostały wpisane
-  if (liczba1.value == "" || liczba2.value == "") {
-    error.innerText = "Liczby nie zostały nadane";
-    wynik.value = "";
-    /// return wychodzi z funkcji
-    return;
-  }
+try{
+  sprawdzCzyPuste();
+
+
   if (cb.checked) {
     wynik.value = parseFloat(liczba1.value) - parseFloat(liczba2.value);
+    error.innerText = "";
   }
   else {
     if (wynik.value == "") {
@@ -87,17 +94,20 @@ function odejmowanie() {
       wynik.value = (parseFloat(wynik.value) - parseFloat(liczba2.value));
     }
   }
+}catch(err) {
+  wynik.value = "";
+  error.innerText = err.message;
+}
+
 }
 function mnozenie() {
   ///Sprawdza czy wartości zostały wpisane
-  if (liczba1.value == "" || liczba2.value == "") {
-    error.innerText = "Liczby nie zostały nadane";
-    wynik.value = "";
-    /// return wychodzi z funkcji
-    return;
-  }
+try{
+sprawdzCzyPuste();
+
   if (cb.checked) {
     wynik.value = parseFloat(liczba1.value) * parseFloat(liczba2.value);
+    error.innerText = "";
   }
   else {
     if (wynik.value == "") {
@@ -109,22 +119,20 @@ function mnozenie() {
     }
   }
 }
+catch(err) {
+  wynik.value = "";
+  error.innerText = err.message;
+}
+}
 function dzielenie() {
   ///Warunek odrzuca dzielenie przez 0
-  if (liczba2.value == 0) {
-    error.innerText = "Nie dziel przez 0";
-    wynik.value = "";
-    return;
-  }
+ try {
+ sprawdzCzy0();
+ sprawdzCzyPuste();
   ///Sprawdza czy wartości zostały wpisane
-  if (liczba1.value == "" || liczba2.value == "") {
-    error.innerText = "Liczby nie zostały nadane";
-    wynik.value = "";
-    /// return wychodzi z funkcji
-    return;
-  }
   if (cb.checked) {
     wynik.value = parseFloat(liczba1.value) / parseFloat(liczba2.value);
+    error.innerText = "";
   }
   else {
     if (wynik.value == "") {
@@ -135,19 +143,16 @@ function dzielenie() {
     }
   }
 }
+catch (err) {
+  wynik.value = "";
+  error.innerText = err.message;
+}
+}
 function modulo() {
-  if (liczba2.value == 0) {
-    error.innerText = "Nie dziel przez 0";
-    wynik.value = "";
-    return;
-  }
-  ///Sprawdza czy wartości zostały wpisane
-  if (liczba1.value == "" || liczba2.value == "") {
-    error.innerText = "Liczby nie zostały nadane";
-    wynik.value = "";
-    /// return wychodzi z funkcji
-    return;
-  }
+try{
+sprawdzCzy0();
+sprawdzCzyPuste();
+
   if (cb.checked) {
     wynik.value = parseFloat(liczba1.value) % parseFloat(liczba2.value);
   }
@@ -160,6 +165,10 @@ function modulo() {
       wynik.value = (parseFloat(wynik.value) % parseFloat(liczba2.value));
     }
   }
+}catch (err) {
+  wynik.value = "";
+  error.innerText = err.message;
+}
 }
 
 function zweryfikujInputa(e) {
