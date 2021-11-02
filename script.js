@@ -64,7 +64,7 @@ function dodawanie()
     }
     else
     {
-      wynik.value=parseFloat(wynik.value) + (parseFloat(wynik.value)+parseFloat(liczba2.value));
+      wynik.value=(parseFloat(wynik.value)+parseFloat(liczba2.value));
     }   
   }
   
@@ -92,7 +92,7 @@ function odejmowanie()
     }
     else
     {
-      wynik.value=parseFloat(wynik.value) + (parseFloat(wynik.value)-parseFloat(liczba2.value));
+      wynik.value=(parseFloat(wynik.value)-parseFloat(liczba2.value));
     }   
   }
 }
@@ -152,7 +152,7 @@ function dzielenie()
     }
     else
     {
-      wynik.value=parseFloat(wynik.value) + (parseFloat(wynik.value)/parseFloat(liczba2.value));
+      wynik.value=(parseFloat(wynik.value)/parseFloat(liczba2.value));
     }   
   }
 }
@@ -185,7 +185,7 @@ function modulo()
     }
     else
     {
-      wynik.value=parseFloat(wynik.value) + (parseFloat(wynik.value)%parseFloat(liczba2.value));
+      wynik.value=(parseFloat(wynik.value)%parseFloat(liczba2.value));
     }   
   }
 }
