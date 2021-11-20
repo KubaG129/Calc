@@ -84,7 +84,7 @@ try{
   }
   else {
     if (wynik.value == "") {
-      wynik.value = parseFloat(Liczba1.value) - parseFloat(liczba2.value);
+      wynik.value = parseFloat(liczba1.value) - parseFloat(liczba2.value);
 
     }
     else {
